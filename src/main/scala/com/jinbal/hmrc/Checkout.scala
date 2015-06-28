@@ -1,6 +1,6 @@
 package com.jinbal.hmrc
 
-class Checkout {
+class Checkout(offers:Seq[Offer] = Nil) {
   def calculate(inputProducts: Seq[ShopItem]): CheckoutSummary = {
     var total = 0.0
     for (product <- inputProducts) {
