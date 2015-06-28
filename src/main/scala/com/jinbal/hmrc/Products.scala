@@ -9,5 +9,5 @@ case object Apple extends ShopItem {
 }
 
 case object Orange extends ShopItem {
-  val price = 0.3
+  val price = 0.25
 }
