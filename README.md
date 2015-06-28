@@ -1,2 +1,7 @@
 # HMRC-Shopping-Cart
-HMRC pre interview exercises
+
+Main entry point is the Checkout class, its associated tests contains the overall acceptance tests.
+
+Inputs are assumed to be case objects Apple / Orange which extend ShopItem.
+
+start sbt in project root and run "test" to see test outputs
