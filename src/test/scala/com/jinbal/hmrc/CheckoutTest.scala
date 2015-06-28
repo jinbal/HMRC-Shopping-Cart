@@ -2,8 +2,7 @@ package com.jinbal.hmrc
 
 import org.scalatest.{FlatSpec, Matchers}
 
-class CheckoutTest extends FlatSpec
-with Matchers {
+class CheckoutTest extends FlatSpec with Matchers {
 
 
   "Checkout" should "correctly calculate the value of a shopping cart" in {
@@ -87,7 +86,18 @@ with Matchers {
     val checkoutSummary = checkout.calculate(inputItems)
 
     // Then
-    checkoutSummary.subTotal should be(0.5)
+    checkoutSummary.subTotal should be(1.1)
+  }
+
+  it should "not apply offers to a mixed item list when min quantities not satisfied" in {
+    val checkout = new Checkout(Seq(AppleBogofOffer, Oranges3For2Offer))
+    val inputItems = Seq(Orange, Apple, Orange)
+
+    // When
+    val checkoutSummary = checkout.calculate(inputItems)
+
+    // Then
+    checkoutSummary.subTotal should be(1.1)
   }
 
 }
